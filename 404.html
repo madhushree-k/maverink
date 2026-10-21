@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MaverInk — Home</title>
+<meta name="description" content="Madhushree Kamak is a curator, creative producer and designer making museums, exhibitions and festivals where art, science and design meet.">
+<meta property="og:title" content="MaverInk — Home">
+<meta property="og:description" content="Madhushree Kamak is a curator, creative producer and designer making museums, exhibitions and festivals where art, science and design meet.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231E5E5A'/%3E%3Ctext x='32' y='45' font-family='Helvetica,Arial,sans-serif' font-size='38' font-weight='600' text-anchor='middle' fill='%23F7F4EF'%3EM%3C/text%3E%3Ccircle cx='50' cy='46' r='4' fill='%23A4582C'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F7F4EF}
+a{color:#1B1A18}a:hover{color:#A4582C}
+@keyframes mvDrift{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mv-strip{animation:mvDrift 90s linear infinite;will-change:transform}
+.mv-viewport:hover .mv-strip{animation-play-state:paused}
+.mv-tile img{transition:transform .9s cubic-bezier(.2,.7,.2,1),filter .6s}
+.mv-tile:hover img{transform:scale(1.03)}
+.mv-nav a{text-decoration:none}
+.mv-logo{filter:grayscale(1);opacity:.75;transition:filter .4s,opacity .4s}
+.mv-logo:hover{filter:none;opacity:1}
+.mv-nav a:hover{text-decoration:underline;text-underline-offset:4px}
+@media (prefers-reduced-motion: reduce){.mv-strip{animation:none}}
+.mv-dd{position:relative}.mv-ddm{display:none;position:absolute;top:100%;left:-18px;padding-top:12px;z-index:60}.mv-dd:hover .mv-ddm,.mv-dd:focus-within .mv-ddm{display:block}.mv-ddm a{display:block;padding:10px 18px;white-space:nowrap}.mv-ddm a:hover{background:#EFEAE2;text-decoration:none !important}
+</style>
+<style>
+html{-webkit-text-size-adjust:100%}
+img{max-width:100%}
+h1,h2,h3,p,a,span{overflow-wrap:break-word}
+a[href^="mailto"]{overflow-wrap:anywhere}
+@media (max-width: 760px){
+  body [style*="padding: 28px 40px"]{padding:20px 20px !important}
+  body [style*="40px"][style*="padding"]{padding-left:20px !important;padding-right:20px !important}
+  body [style*="gap: 32px 64px"],body [style*="gap: 40px 64px"],body [style*="gap: 16px 80px"]{column-gap:24px !important}
+  [style*="repeat(12"]{grid-template-columns:minmax(0,1fr) !important;column-gap:0 !important}
+  [style*="repeat(12"] > *{grid-column:auto !important;margin-top:0 !important}
+  .mv-nav{gap:8px 18px !important}
+  .mv-ddm{left:auto !important;right:auto}
+}
+</style>
+</head>
+<body>
+<template id="dc-tpl">
+<div style="min-height: 100vh; background: #F7F4EF; color: #1B1A18; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 17px; line-height: 1.5">
+
+<header style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; padding: 28px 40px">
+<a href="index.html" style="font-size: 26px; font-weight: 600; letter-spacing: -0.02em; text-decoration: none">Maver<span style="color: #A4582C">Ink</span></a>
+<nav class="mv-nav" aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 28px; font-size: 15px">
+<a href="work.html">Work</a>
+<div class="mv-dd"><button type="button" aria-haspopup="true" style="font: inherit; background: none; border: 0; padding: 0; cursor: pointer; color: inherit">Illustration &amp; SciArt <span aria-hidden="true" style="font-size: 11px">▾</span></button><div class="mv-ddm"><div style="background: #F7F4EF; border: 1px solid #DDD6CB; padding: 8px 0; box-shadow: 0 12px 32px rgba(27,26,24,.10)"><a href="science-illustration.html">Science Illustration</a><a href="scitype.html">#SciType</a><a href="elemental.html">Elemental</a><a href="sciart-collab.html">Art-Science Co-Lab</a></div></div></div>
+<a href="talks-writing.html">Talks &amp; Writing</a>
+<a href="about.html">About</a>
+<a href="#contact" style="padding: 10px 20px; border: 1px solid #1B1A18; border-radius: 999px; text-decoration: none">Contact</a>
+</nav>
+</header>
+
+<section aria-label="Selected projects" class="mv-viewport" style="overflow: hidden; padding: 32px 0 24px">
+<div class="mv-strip" style="display: flex; align-items: flex-start; gap: 40px; width: max-content; padding-left: 40px">
+<sc-for list="{{strip}}" as="item" hint-placeholder-count="8">
+<a href="{{item.href}}" class="mv-tile" style="display: flex; flex-direction: column; gap: 10px; text-decoration: none; flex: none; margin-top: {{item.mt}}px">
+<span style="display: block; overflow: hidden; width: {{item.w}}px; height: {{item.h}}px; background: #E8E2D8">
+<img src="{{item.src}}" alt="{{item.alt}}" style="width: 100%; height: 100%; object-fit: cover; display: block">
+</span>
+<span style="display: flex; justify-content: space-between; gap: 16px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #5F5A52; letter-spacing: 0.02em">
+<span>{{item.title}}</span><span>{{item.meta}}</span>
+</span>
+</a>
+</sc-for>
+</div>
+</section>
+
+<section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr)); gap: 32px 64px; align-items: end; padding: 72px 40px 120px; max-width: 1440px; margin: 0 auto; box-sizing: border-box">
+<h1 style="margin: 0; font-size: clamp(48px, 7vw, 104px); line-height: 0.98; font-weight: 500; letter-spacing: -0.035em">Art, Science<br>and Design</h1>
+<div style="display: flex; flex-direction: column; gap: 20px; max-width: 520px">
+<p style="margin: 0; font-size: 22px; line-height: 1.4">Madhushree Kamak is a creative producer and experience designer making museums, exhibitions and festivals where art, science and design meet.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center">
+<span style="display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px; border-radius: 999px; background: #E3EEEC; color: #1E5E5A; font-size: 14px; font-weight: 500"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: #1E5E5A"></span>Available for new projects</span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #5F5A52">Bengaluru · working worldwide</span>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="svc" style="background: #1E5E5A; color: #F7F4EF">
+<div style="max-width: 1440px; margin: 0 auto; padding: 96px 40px; box-sizing: border-box; display: flex; flex-direction: column; gap: 56px">
+<h2 id="svc" style="margin: 0; max-width: 1000px; font-size: clamp(28px, 3.4vw, 44px); line-height: 1.2; font-weight: 400; letter-spacing: -0.015em">I work with museums, science centres, festivals and foundations to turn research into experiences people can walk into, play with and talk about.</h2>
+<ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); column-gap: 96px">
+<sc-for list="{{services}}" as="s" hint-placeholder-count="5">
+<li style="display: flex; align-items: baseline; gap: 24px; padding: 26px 0; border-top: 1px solid rgba(247,244,239,0.35)">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #E9B48F">{{s.n}}</span>
+<span style="font-size: clamp(22px, 2.2vw, 30px); font-weight: 500; color: #F7F4EF">{{s.name}}</span>
+</li>
+</sc-for>
+</ul>
+</div>
+</section>
+
+<section aria-labelledby="sel" style="max-width: 1440px; margin: 0 auto; padding: 112px 40px; box-sizing: border-box; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 16px">
+<h2 id="sel" style="margin: 0; font-size: 15px; font-family: 'IBM Plex Mono', monospace; font-weight: 400; letter-spacing: 0.04em; text-transform: uppercase; color: #5F5A52">Recent work</h2>
+<a href="work.html" style="font-size: 17px">All projects →</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 48px 40px">
+<sc-for list="{{recent}}" as="p" hint-placeholder-count="3">
+<a href="{{p.href}}" class="mv-tile" style="display: flex; flex-direction: column; gap: 14px; text-decoration: none">
+<span style="position: relative; display: block; overflow: hidden; aspect-ratio: 4 / 3; background: #E8E2D8">
+<img src="{{p.src}}" alt="{{p.alt}}" style="width: 100%; height: 100%; object-fit: cover; display: block">
+<span style="position: absolute; top: 14px; left: 14px; padding: 5px 12px; border-radius: 999px; background: #F7F4EF; color: #A4582C; font-size: 12px; font-weight: 600; letter-spacing: 0.02em">{{p.badge}}</span>
+</span>
+<span style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 24px; font-weight: 500; letter-spacing: -0.01em">{{p.title}}</span>
+<span style="font-size: 15px; color: #5F5A52">{{p.meta}}</span>
+</span>
+</a>
+</sc-for>
+</div>
+</section>
+
+<section aria-labelledby="with" style="border-top: 1px solid #DDD6CB">
+<div style="max-width: 1440px; margin: 0 auto; padding: 96px 40px; box-sizing: border-box; display: flex; flex-direction: column; gap: 40px">
+<h2 id="with" style="margin: 0; font-size: 15px; font-family: 'IBM Plex Mono', monospace; font-weight: 400; letter-spacing: 0.04em; text-transform: uppercase; color: #5F5A52">Worked with</h2>
+<ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 180px), 1fr)); gap: 8px 24px; align-items: center">
+<li style="display: flex; align-items: center; justify-content: center; min-height: 96px; padding: 16px"><img class="mv-logo" src="img/8fc72ca22a6d95a4f60e33d9ad7d3cf1.png" alt="Tate" style="height: 44px; width: auto; max-width: 100%; display: block"></li>
+<li style="display: flex; align-items: center; justify-content: center; min-height: 96px; padding: 16px"><img class="mv-logo" src="img/ce45812b11846fcf419c9d96ababcec0.png" alt="Delfina Foundation" style="height: 40px; width: auto; max-width: 100%; display: block"></li>
+<li style="display: flex; align-items: center; justify-content: center; min-height: 96px; padding: 16px"><img class="mv-logo" src="img/8678ee9a1c51c64a8b2320047e4aa141.png" alt="Wellcome" style="height: 64px; width: auto; max-width: 100%; display: block"></li>
+<li style="display: flex; align-items: center; justify-content: center; min-height: 96px; padding: 16px"><img class="mv-logo" src="img/f79e44bab816da1b478b2b3fa6925340.png" alt="Science Gallery" style="height: 52px; width: auto; max-width: 100%; display: block"></li>
+<li style="display: flex; align-items: center; justify-content: center; min-height: 96px; padding: 16px"><img class="mv-logo" src="img/da323565c2977ab1e3433ceb8ecbd878.png" alt="India Foundation for the Arts" style="height: 44px; width: auto; max-width: 100%; display: block"></li>
+<li style="display: flex; align-items: center; justify-content: center; min-height: 96px; padding: 16px"><img class="mv-logo" src="img/0d370c46d5663d770e8b75c02b476c58.png" alt="Rohini Nilekani Philanthropies" style="height: 72px; width: auto; max-width: 100%; display: block"></li>
+<li style="display: flex; align-items: center; justify-content: center; min-height: 96px; padding: 16px"><img class="mv-logo" src="img/e76c96d0b74c888a7e9006665065d37f.png" alt="Sangath" style="height: 60px; width: auto; max-width: 100%; display: block"></li>
+<li style="display: flex; align-items: center; justify-content: center; min-height: 96px; padding: 16px"><img class="mv-logo" src="img/74f2ea499e36390e1b05a3c039898e9d.png" alt="Tata Institute of Fundamental Research" style="height: 48px; width: auto; max-width: 100%; display: block"></li>
+<li style="display: flex; align-items: center; justify-content: center; min-height: 96px; padding: 16px"><img class="mv-logo" src="img/73db8937f947a26e9ffba227f87b31de.png" alt="International Centre for Theoretical Sciences" style="height: 44px; width: auto; max-width: 100%; display: block"></li>
+<li style="display: flex; align-items: center; justify-content: center; min-height: 96px; padding: 16px"><img class="mv-logo" src="img/97da76a32dfde15942c14730012ea9a1.png" alt="IIT Kanpur" style="height: 64px; width: auto; max-width: 100%; display: block"></li>
+<li style="display: flex; align-items: center; justify-content: center; min-height: 96px; padding: 16px"><img class="mv-logo" src="img/6a1b546cf36c9a2c60f8ff1deeae0f93.jpg" alt="Agastya International Foundation" style="height: 40px; width: auto; max-width: 100%; display: block"></li>
+<li style="display: flex; align-items: center; justify-content: center; min-height: 96px; padding: 16px"><img class="mv-logo" src="img/67c74c077124b9b48eb49e8154296d5a.png" alt="Ajit Isaac Foundation" style="height: 52px; width: auto; max-width: 100%; display: block"></li>
+<li style="display: flex; align-items: center; justify-content: center; min-height: 96px; padding: 16px"><img class="mv-logo" src="img/1cc9abaebec48bcc9035b83b8e1c00a0.png" alt="Rani Abbakka Tulu Nadu Museum" style="height: 72px; width: auto; max-width: 100%; display: block"></li>
+<li style="display: flex; align-items: center; justify-content: center; min-height: 96px; padding: 16px"><img class="mv-logo" src="img/c71b3ab6c38844057442f84117ee8855.png" alt="Global Strategy Lab" style="height: 48px; width: auto; max-width: 100%; display: block"></li>
+<li style="display: flex; align-items: center; justify-content: center; min-height: 96px; padding: 16px"><img class="mv-logo" src="img/d155e6278816c9baba152ffd4d4d9c19.png" alt="MORU Tropical Health Network" style="height: 48px; width: auto; max-width: 100%; display: block"></li>
+<li style="display: flex; align-items: center; justify-content: center; min-height: 96px; padding: 16px"><img class="mv-logo" src="img/855646cc0ee7ba8d0b71d60a54e03257.png" alt="Goethe-Institut" style="height: 44px; width: auto; max-width: 100%; display: block"></li>
+<li style="display: flex; align-items: center; justify-content: center; min-height: 96px; padding: 16px"><img class="mv-logo" src="img/8d83c8ecf4d301ed36181f8d66a94bc6.png" alt="Museum of Art &amp; Photography" style="height: 44px; width: auto; max-width: 100%; display: block"></li>
+<li style="display: flex; align-items: center; justify-content: center; min-height: 96px; padding: 16px"><img class="mv-logo" src="img/de7eb0d19cb3d9d06993d118aa265ecb.png" alt="NIMHANS" style="height: 60px; width: auto; max-width: 100%; display: block"></li>
+<li style="display: flex; align-items: center; justify-content: center; min-height: 96px; padding: 16px"><img class="mv-logo" src="img/393d3eb3412c08e311ea796f5eabf877.png" alt="NCBS" style="height: 52px; width: auto; max-width: 100%; display: block"></li>
+<li style="display: flex; align-items: center; justify-content: center; min-height: 96px; padding: 16px"><img class="mv-logo" src="img/82c636218f98cba12be5c0ff1ee78259.png" alt="Pallium India" style="height: 48px; width: auto; max-width: 100%; display: block"></li>
+<li style="display: flex; align-items: center; justify-content: center; min-height: 96px; padding: 16px"><img class="mv-logo" src="img/140f3563d3a92298d2309c6ad21d43c4.png" alt="Vidhi Centre for Legal Policy" style="height: 44px; width: auto; max-width: 100%; display: block"></li>
+<li style="display: flex; align-items: center; justify-content: center; min-height: 96px; padding: 16px"><img class="mv-logo" src="img/f39391bbb444720a759ca6807645fceb.png" alt="Tokyo Arts and Space" style="height: 44px; width: auto; max-width: 100%; display: block"></li>
+<li style="display: flex; align-items: center; justify-content: center; min-height: 96px; padding: 16px"><img class="mv-logo" src="img/c9764d3ec37133d70b73356adb126e14.png" alt="Unboxing Bangalore" style="height: 52px; width: auto; max-width: 100%; display: block"></li>
+<li style="display: flex; align-items: center; justify-content: center; min-height: 96px; padding: 16px"><img class="mv-logo" src="img/898f97e5006fd6266b5d5f43a2c6ab7b.png" alt="Tata Trusts" style="height: 34px; width: auto; max-width: 100%; display: block"></li>
+<li style="display: flex; align-items: center; justify-content: center; min-height: 96px; padding: 16px"><img class="mv-logo" src="img/e334a328a7de59b252c71de512818846.png" alt="Indian Institute for Human Settlements" style="height: 56px; width: auto; max-width: 100%; display: block"></li>
+<li style="display: flex; align-items: center; justify-content: center; min-height: 96px; padding: 16px"><img class="mv-logo" src="img/2e61eac77ab9ea6bd65438b881e46df9.png" alt="Falling Walls Foundation" style="height: 52px; width: auto; max-width: 100%; display: block"></li>
+<li style="display: flex; align-items: center; justify-content: center; min-height: 96px; padding: 16px"><img class="mv-logo" src="img/a40714b8cc186dcec027233b84521809.png" alt="Government of Karnataka" style="height: 56px; width: auto; max-width: 100%; display: block"></li>
+</ul>
+</div>
+</section>
+
+<footer id="contact" style="border-top: 1px solid #DDD6CB">
+<div style="max-width: 1440px; margin: 0 auto; padding: 112px 40px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 80px">
+<div style="display: flex; flex-direction: column; gap: 24px">
+<p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; color: #5F5A52">Have a project in mind?</p>
+<a href="mailto:madhushree.kamak@gmail.com" style="font-size: clamp(30px, 5vw, 72px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.05; text-decoration: none; overflow-wrap: anywhere">madhushree.kamak@gmail.com</a>
+</div>
+<div class="mv-nav" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 14px; color: #5F5A52">
+<span>© 2026 Madhushree Kamak · MaverInk</span>
+<span style="display: flex; flex-wrap: wrap; gap: 24px">
+<a href="https://www.instagram.com/maverink__/">Instagram</a>
+<a href="https://www.linkedin.com/in/madhushree-kamak-673951111/">LinkedIn</a>
+<a href="#">CV</a>
+</span>
+</div>
+</div>
+</footer>
+
+</div>
+</template>
+<div id="dc-root"></div>
+<script type="text/plain" id="dc-logic">
+class Component extends DCLogic {
+  renderVals() {
+    var B = {
+      carbon: 'img/ba474992405a973e533258253739baaa.jpg',
+      amr: 'img/8f6e9e61f6411246b2436b559629668f.jpg',
+      rice: 'img/11d9a33943506aace2d7919df871a633.jpg',
+      canopy: 'img/66f51dda231626d2234c01d07509614e.jpg',
+      munsell: 'img/52b56309b5e8e5866ed3935344da897f.jpg',
+      mano: 'img/32d53f534feda720485cf4cd8147124c.jpg',
+      tate: 'img/b8547f0a4e27766f0c4dcfc05a3d2058.jpg',
+      neon: 'img/fad3df384c3a00362811e1600f376990.jpg',
+      mist: 'img/1e906f2fdad132e2b01d9b903ec78a5f.jpg',
+      stelarc: 'img/cf310394e73cf127efba4fffe943be56.jpg',
+      arboreal: 'img/d4c06ca318de273e8fda9d7ca16c6718.jpg',
+      raqs: 'img/f00cd583f753a88161daf18a0307ff5d.jpg',
+      gtg: 'img/1975ac7a539c56330daa2deca6565d9e.jpg',
+      manoCrowd: 'img/c0c3a316d5b31df8b94a5383a8862ff0.jpg'
+    };
+    var base = [
+      { src: B.carbon, w: 520, h: 360, mt: 40, title: 'CARBON', meta: 'SGB 2023–24', alt: 'A visitor at the entrance to CARBON beside a tall carved panel', href: 'carbon.html' },
+      { src: B.amr, w: 400, h: 280, mt: 0, title: 'Microbial Realm', meta: 'Game 2024–26', alt: 'Illustration of players around the Microbial Realm tabletop game', href: 'microbial-realm.html' },
+      { src: B.canopy, w: 320, h: 420, mt: 110, title: 'Beneath the Green Canopy', meta: 'Bantwal 2026', alt: 'Visitors among the terracotta-brick plinths at Beneath the Green Canopy', href: 'green-canopy.html' },
+      { src: B.rice, w: 460, h: 310, mt: 20, title: 'Chasing Rice', meta: 'TOKAS 2026', alt: 'Hands sorting rice varieties at the TOKAS Open Studio', href: 'chasing-rice.html' },
+      { src: B.munsell, w: 360, h: 260, mt: 150, title: 'SUBMERGE', meta: 'SGB 2019–20', alt: 'Visitors at Munsell Richter by Jenifer Wightman', href: 'submerge.html' },
+      { src: B.mano, w: 340, h: 440, mt: 0, title: 'Manotsava', meta: 'Bengaluru 2025', alt: 'Shahi Tukra performance at Manotsava', href: 'manotsava.html' },
+      { src: B.mist, w: 540, h: 340, mt: 90, title: 'Museum of Innovation, Start-Ups and Technology', meta: 'Bengaluru 2026', alt: 'Architectural render of MIST among trees', href: 'mist.html' },
+      { src: B.neon, w: 380, h: 260, mt: 20, title: 'ELEMENTS', meta: 'SGB 2019', alt: 'Neon sign reading Sc Cu Xe at night', href: 'elements.html' },
+      { src: B.stelarc, w: 420, h: 300, mt: 130, title: 'PSYCHE', meta: 'SGB 2022', alt: 'Synthetic Self by Stelarc', href: 'psyche.html' },
+      { src: B.tate, w: 360, h: 260, mt: 30, title: 'Hacking the Museum', meta: 'Tate 2024', alt: 'Presenting the research on stage at Tate Modern', href: 'hacking-the-museum.html' },
+      { src: B.arboreal, w: 320, h: 400, mt: 100, title: 'PHYTOPIA', meta: 'SGB 2020', alt: 'Arboreal by Rohini Devasher', href: 'phytopia.html' },
+      { src: B.gtg, w: 460, h: 320, mt: 10, title: 'Good To Go', meta: 'Bengaluru 2025', alt: 'Children and adults painting at Good To Go', href: 'good-to-go.html' }
+    ];
+    return {
+      strip: base.concat(base),
+      services: [
+        { n: '01', name: 'Exhibition Curation' },
+        { n: '02', name: 'Experience & XR Design' },
+        { n: '03', name: 'Museum Consulting' },
+        { n: '04', name: 'Public Programmes' },
+        { n: '05', name: 'Research & Evaluation' }
+      ],
+      recent: [
+        { src: B.mist, title: 'MIST', meta: 'Museum · Bengaluru · 2026', badge: 'Ongoing', alt: 'Architectural render of the MIST museum', href: 'mist.html' },
+        { src: B.manoCrowd, title: 'Manotsava', meta: 'Festival · National Mental Health Festival · 2024–26', badge: 'Ongoing', alt: 'Crowds among the stalls at Manotsava', href: 'manotsava.html' },
+        { src: B.rice, title: 'Chasing Rice', meta: 'Residency · TOKAS, Tokyo · 2026', badge: 'Residency', alt: 'Rice varieties at the TOKAS Open Studio', href: 'chasing-rice.html' }
+      ]
+    };
+  }
+}
+</script>
+<script src="js/site.js"></script>
+<noscript><p style="padding:40px;font-family:sans-serif">Please enable JavaScript to view this page.</p></noscript>
+</body>
+</html>
