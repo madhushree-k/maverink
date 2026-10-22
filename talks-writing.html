@@ -37,6 +37,12 @@ a[href^="mailto"]{overflow-wrap:anywhere}
   [style*="repeat(12"]{grid-template-columns:minmax(0,1fr) !important;column-gap:0 !important}
   [style*="repeat(12"] > *{grid-column:auto !important;margin-top:0 !important}
   .mv-nav{gap:8px 18px !important}
+  li.mv-row > a, li.mv-row > div{grid-template-columns:max-content 1fr auto !important;gap:6px 16px !important;padding:20px 4px !important}
+  li.mv-row > * > :nth-child(3), li.mv-row > * > :nth-child(4){grid-column:1 / -1}
+  li.mv-row > * > :nth-child(5){grid-row:1;grid-column:3}
+  [style*="grid-template-columns: 140px"]{grid-template-columns:76px minmax(0,1fr) !important;column-gap:16px !important}
+  [style*="grid-template-columns: 56px minmax(0, 1.2fr)"]{grid-template-columns:40px minmax(0,1fr) !important;column-gap:12px !important;row-gap:4px !important}
+  [style*="grid-template-columns: 56px minmax(0, 1.2fr)"] > :nth-child(3){grid-column:2}
   .mv-ddm{left:auto !important;right:auto}
 }
 </style>
@@ -87,5 +93,25 @@ a[href^="mailto"]{overflow-wrap:anywhere}
 </footer>
 
 </div>
+<script>
+(function(){
+  var sec=[].slice.call(document.querySelectorAll('section')).find(function(s){return /^(All|Talks|Teaching|Publications)$/.test((s.firstElementChild||{}).textContent||'')&&s.children.length>2});
+  if(!sec)return;
+  var map={All:null,Talks:'TALK',Teaching:'TEACHING',Publications:'PUBLICATION'};
+  var chips=[].slice.call(sec.children), rows=[].slice.call(document.querySelectorAll('li.mv-row'));
+  var on='padding: 8px 16px; border-radius: 999px; font-size: 14px; background: #1B1A18; color: #F7F4EF; border: 1px solid #1B1A18; font-family: inherit; cursor: pointer';
+  var off='padding: 8px 16px; border-radius: 999px; font-size: 14px; background: transparent; color: #1B1A18; border: 1px solid #DDD6CB; font-family: inherit; cursor: pointer';
+  chips.forEach(function(c){
+    var b=document.createElement('button'); b.type='button'; b.textContent=c.textContent; b.style.cssText=c.textContent==='All'?on:off;
+    b.setAttribute('aria-pressed', c.textContent==='All'?'true':'false');
+    b.addEventListener('click',function(){
+      var k=map[b.textContent];
+      rows.forEach(function(r){var t=(r.querySelector('span')||{}).textContent;r.style.display=(!k||t===k)?'':'none'});
+      [].slice.call(sec.children).forEach(function(x){var a=x===b;x.style.cssText=a?on:off;x.setAttribute('aria-pressed',a?'true':'false')});
+    });
+    sec.replaceChild(b,c);
+  });
+})();
+</script>
 </body>
 </html>
